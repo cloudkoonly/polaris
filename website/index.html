@@ -3,38 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polaris</title>
+    <title>Polaris Wing — AI-first Technology Company</title>
+    <meta name="description" content="Polaris Wing is an AI-first technology company building intelligent software across AI, SaaS and mobile apps for users worldwide.">
     <script src="/js/3.4.17.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Shared CSS classes available to all child pages */
-        .btn-primary { display: inline-block; border-radius: 9999px; background: #111827; color: #fff; padding: 0.625rem 1.25rem; font-size: 0.875rem; }
-        .card { border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.5rem; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --ink: #0f172a;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --soft: #f8fafc;
+            --navy: #0b1220;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--ink);
+            background: #ffffff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Shared layout helpers (inherited by child pages via header.phtml) */
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .eyebrow {
+            display: inline-block; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--primary); margin: 0 0 1rem;
+        }
+        h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
+        p { line-height: 1.7; color: var(--muted); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 9999px; padding: 0.75rem 1.5rem; font-size: 0.95rem;
+            font-weight: 600; text-decoration: none; transition: all .15s ease;
+        }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-ghost { color: var(--ink); border: 1px solid var(--line); background: #fff; }
+        .btn-ghost:hover { border-color: var(--ink); }
+        .btn-light { background: #fff; color: var(--navy); }
+        .btn-light:hover { background: #e2e8f0; }
+        .card {
+            background: #fff; border: 1px solid var(--line); border-radius: 1rem;
+            padding: 2rem; transition: box-shadow .2s ease, transform .2s ease;
+        }
+        .card:hover { box-shadow: 0 12px 32px rgba(15, 23, 42, .08); transform: translateY(-2px); }
+        .section-pad { padding: 96px 0; }
     </style>
 </head>
 <body>
     <header>
-        <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
-            <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-                <a href="/" class="font-bold text-xl">Polaris</a>
-                <a href="/signup[% utm_source %]" class="btn-primary">Get Started</a>
+        <nav class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-sm border-b border-gray-100">
+            <div class="wrap h-16 flex items-center justify-between">
+                <a href="/" class="font-extrabold text-lg tracking-tight">Polaris<span style="color:var(--primary)"> Wing</span></a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="text-sm text-gray-600 hover:text-gray-900 no-underline">Home</a>
+                    <a href="/about" class="text-sm text-gray-600 hover:text-gray-900 no-underline">About</a>
+                    <a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 no-underline">Blog</a>
+                    <a href="/contact" class="btn btn-primary text-sm" style="padding:.5rem 1.25rem">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden p-2 text-2xl leading-none" aria-label="Open menu">☰</button>
+            </div>
+            <div id="mobileOverlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+            <div id="mobileDrawer" class="fixed top-0 right-0 w-72 h-full bg-white hidden z-50 p-6 shadow-2xl flex flex-col gap-4">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="font-extrabold">Polaris Wing</span>
+                    <button id="closeMenuBtn" class="text-2xl leading-none" aria-label="Close menu">✕</button>
+                </div>
+                <a href="/" class="text-gray-700">Home</a>
+                <a href="/about" class="text-gray-700">About</a>
+                <a href="/blog" class="text-gray-700">Blog</a>
+                <a href="/contact" class="btn btn-primary text-center mt-2">Contact</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <!--seo:{"title":"Polaris","description":"Polaris — placeholder site, pending content."}-->
+        <!-- Hero -->
+        <section class="pt-36 pb-20 text-center" style="background:radial-gradient(1200px 500px at 50% -10%, rgba(37,99,235,.08), transparent 70%)">
+            <div class="wrap">
+                <p class="eyebrow">Polaris Wing · AI-First Technology Company</p>
+                <h1 class="text-4xl md:text-6xl font-extrabold max-w-3xl mx-auto" style="line-height:1.08">
+                    Intelligence is the product. <span style="color:var(--primary)">Global</span> by design.
+                </h1>
+                <p class="mt-6 text-lg max-w-2xl mx-auto">
+                    We are an AI-first technology company building intelligent software across
+                    AI, SaaS and mobile apps — crafted for users worldwide.
+                </p>
+                <div class="mt-9 flex flex-wrap justify-center gap-3">
+                    <a href="/contact" class="btn btn-primary">Contact us</a>
+                    <a href="/about" class="btn btn-ghost">About Polaris Wing</a>
+                </div>
+            </div>
+        </section>
 
-        <section class="pt-32 pb-20 px-6 text-center">
-            <h1 class="text-5xl font-bold">Polaris</h1>
-            <p class="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
-                Placeholder homepage. Content coming soon.
-            </p>
-            <a href="/signup[% utm_source %]" class="btn-primary mt-8">Get Started</a>
+        <!-- Focus strip -->
+        <section class="py-10 border-y" style="border-color:var(--line)">
+            <div class="wrap flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-gray-500">
+                <span class="font-semibold text-gray-700">AI-first company</span>
+                <span>·</span><span>AI</span><span>·</span><span>SaaS</span><span>·</span><span>Apps</span>
+                <span>·</span><span>Serving users worldwide</span>
+            </div>
+        </section>
+
+        <!-- What we do -->
+        <section class="section-pad">
+            <div class="wrap">
+                <div class="max-w-2xl mb-14">
+                    <p class="eyebrow">What we do</p>
+                    <h2 class="text-3xl md:text-4xl font-bold">Three tracks, one direction</h2>
+                    <p class="mt-4">Everything we ship starts from a simple question: how can intelligence make this genuinely better?</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card">
+                        <div class="mb-5 text-2xl">🧠</div>
+                        <h3 class="text-xl font-bold">AI</h3>
+                        <p class="mt-3">Model-native systems and intelligent interfaces — applied AI products that put capabilities in the hands of real users.</p>
+                    </div>
+                    <div class="card">
+                        <div class="mb-5 text-2xl">☁️</div>
+                        <h3 class="text-xl font-bold">SaaS</h3>
+                        <p class="mt-3">Cloud software designed to be simple, reliable and global-ready — productivity and business tools people actually enjoy using.</p>
+                    </div>
+                    <div class="card">
+                        <div class="mb-5 text-2xl">📱</div>
+                        <h3 class="text-xl font-bold">Apps</h3>
+                        <p class="mt-3">Mobile and desktop applications with polished experience — from first prototype to worldwide release.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section class="section-pad" style="background:var(--soft)">
+            <div class="wrap grid md:grid-cols-2 gap-14 items-start">
+                <div>
+                    <p class="eyebrow">Our approach</p>
+                    <h2 class="text-3xl md:text-4xl font-bold">Built AI-first, from day one</h2>
+                    <p class="mt-5">
+                        We don't bolt intelligence onto products afterwards. AI shapes how we
+                        design, how we build and what we build — starting from the first line of code.
+                    </p>
+                    <a href="/contact" class="btn btn-primary mt-8">Work with us</a>
+                </div>
+                <div class="space-y-5">
+                    <div>
+                        <h3 class="font-bold">Model-native engineering</h3>
+                        <p class="mt-1">Capabilities designed around what models do best — and clearly scoped where they don't.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Fast iteration</h3>
+                        <p class="mt-1">Small teams, tight loops. We ship, measure and refine — usually in days, not quarters.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Global by default</h3>
+                        <p class="mt-1">Products built for an international audience from the start: language, privacy and distribution included.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA band -->
+        <section class="py-20" style="background:var(--navy)">
+            <div class="wrap text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Let's build what's next</h2>
+                <p class="mt-4 text-lg" style="color:#94a3b8;max-width:560px;margin-left:auto;margin-right:auto">
+                    Have an idea, a product or a problem worth solving? Tell us about it.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <a href="/contact" class="btn btn-light">Contact us</a>
+                    <a href="mailto:contact@polariswing.com" class="btn" style="border:1px solid rgba(255,255,255,.35);color:#fff">contact@polariswing.com</a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-16 px-6">
-        <div class="max-w-6xl mx-auto text-center text-gray-400">© 2026 Polaris</div>
+    <footer style="background:#060a13">
+        <div class="wrap py-14">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <a href="/" class="font-extrabold text-lg text-white">Polaris Wing</a>
+                    <p class="mt-3 text-sm" style="color:#64748b">AI-first technology company building intelligent software for users worldwide.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Company</h4>
+                    <div class="flex flex-col gap-2 text-sm" style="color:#94a3b8">
+                        <a href="/about" class="hover:text-white" style="text-decoration:none">About</a>
+                        <a href="/blog" class="hover:text-white" style="text-decoration:none">Blog</a>
+                        <a href="/contact" class="hover:text-white" style="text-decoration:none">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Contact</h4>
+                    <div class="flex flex-col gap-2 text-sm" style="color:#94a3b8">
+                        <a href="mailto:contact@polariswing.com" class="hover:text-white" style="text-decoration:none">contact@polariswing.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-6 border-t text-sm flex flex-col md:flex-row items-center justify-between gap-3" style="border-color:rgba(255,255,255,.08);color:#64748b">
+                <span>© 2026 Polaris Wing. All rights reserved.</span>
+                <span>AI · SaaS · Apps — built for a global audience</span>
+            </div>
+        </div>
     </footer>
+
+    <button id="toTopBtn" style="display:none;position:fixed;bottom:1.5rem;right:1.5rem;z-index:60;background:var(--ink);color:#fff;border:none;border-radius:9999px;width:2.75rem;height:2.75rem;font-size:1.1rem;cursor:pointer" aria-label="Back to top">↑</button>
+    <script>
+        // Mobile drawer
+        var menuBtn = document.getElementById('menuBtn');
+        var closeBtn = document.getElementById('closeMenuBtn');
+        var drawer = document.getElementById('mobileDrawer');
+        var overlay = document.getElementById('mobileOverlay');
+        function openMenu(){ drawer.classList.remove('hidden'); overlay.classList.remove('hidden'); }
+        function closeMenu(){ drawer.classList.add('hidden'); overlay.classList.add('hidden'); }
+        if (menuBtn) menuBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+        drawer && drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+        // Back to top
+        var toTop = document.getElementById('toTopBtn');
+        window.addEventListener('scroll', function(){
+            if (window.scrollY > 600) { toTop.style.display = 'block'; } else { toTop.style.display = 'none'; }
+        });
+        toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
 </body>
 </html>
