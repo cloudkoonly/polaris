@@ -1,0 +1,11 @@
+version: 1
+binding_id: 1904
+domain: polariswing.com
+domain_slug: do-5709b5c0f847ae06753c2853
+endpoint: https://api.litestartup.com
+repo_url: https://github.com/cloudkoonly/polaris.git
+sync:
+  blog:
+    path: "blog/**/*.md"
+  website:
+    path: "website/**/*.html"
